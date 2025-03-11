@@ -9,7 +9,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.material3.Button
-import androidx.compose.material3.Divider
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.RadioButton
 import androidx.compose.ui.Alignment
@@ -28,12 +28,12 @@ import com.lpg.cupcakenavigationapp.ui.theme.CupcakeNavigationAppTheme
 
 @Composable
 fun SelectOptionScreen(
+    modifier: Modifier = Modifier,
     subtotal: String,
     options: List<String>,
     onSelectionChanged: (String) -> Unit = {},
     onCancelButtonClicked: () -> Unit = {},
     onNextButtonClicked: () -> Unit = {},
-    modifier: Modifier = Modifier
 ) {
     var selectedValue by rememberSaveable { mutableStateOf("") }
 
@@ -63,9 +63,9 @@ fun SelectOptionScreen(
                     Text(item)
                 }
             }
-            Divider(
-                thickness = dimensionResource(R.dimen.thickness_divider),
-                modifier = Modifier.padding(bottom = dimensionResource(R.dimen.padding_medium))
+            HorizontalDivider(
+                modifier = Modifier.padding(bottom = dimensionResource(R.dimen.padding_medium)),
+                thickness = dimensionResource(R.dimen.thickness_divider)
             )
             FormattedPriceLabel(
                 subtotal = subtotal,
